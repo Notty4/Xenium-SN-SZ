@@ -17,12 +17,13 @@ The central finding was a reactive astrocyte signature — upregulation of **SER
 ## Repository Structure
 
 ```
-├── 01_Within_Sample_Clustering.R    # De novo clustering, spatial processing, ROI analysis
-├── 02_Atlas_Integration_DGE.R       # Reference atlas mapping and cell-type-specific DGE
-├── data/                            # Input data directory (not included — see note below)
-│   ├── SN1/                         # Control tissue Xenium output
-│   └── SN4/                         # Schizophrenia tissue Xenium output
-└── results/                         # Output directory for figures and DGE tables
+├── 00_TH_Visualisation_ROI_Delineation.py  # TH expression visualisation for ROI coordinate delineation
+├── 01_Within_Sample_Clustering.R            # De novo clustering, spatial processing, ROI analysis
+├── 02_Atlas_Integration_DGE.R               # Reference atlas mapping and cell-type-specific DGE
+├── data/                                    # Input data directory (not included — see note below)
+│   ├── SN1/                                 # Control tissue Xenium output
+│   └── SN4/                                 # Schizophrenia tissue Xenium output
+└── results/                                 # Output directory for figures and DGE tables
     ├── figs/
     └── dge/
 ```
@@ -61,14 +62,15 @@ Maps the clustered data onto the Agarwal et al. (2020) human midbrain reference 
 
 ## Dependencies
 
-```r
+### R
 install.packages(c("Seurat", "data.table", "dplyr", "tidyr", "ggplot2",
                    "patchwork", "tibble", "pheatmap", "ggrepel", "readr"))
 
 if (!require("BiocManager")) install.packages("BiocManager")
 BiocManager::install(c("EnhancedVolcano", "clusterProfiler", "org.Hs.eg.db"))
-```
 
+### Python
+pip install pandas matplotlib
 ---
 
 ## Data Availability
